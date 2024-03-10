@@ -1,0 +1,185 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: login.html');
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joelle's Project</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: rgb(146, 146, 105); /* Light grey background for better contrast */
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            color: #333; /* Dark grey text for better readability */
+        }
+        .container { 
+            max-width: 1200px; /* Limiting max width */
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .grid {
+            width: calc(33.3% - 20px); /* Calculation to include the gap */
+            background-color: rgb(206, 206, 137); /* White background for a clean look */
+            border: 1px solid #e1e1e1; /* subtle borders */
+            border-radius: 10px;
+            padding: 20px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* subtle shadow */
+            transition: box-shadow 0.3s ease;
+        }
+        .grid:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,1.9); /* Shadow effect on hover */
+        }
+        .grid h2 {
+            margin-bottom: 20px; /* Spacing under headers */
+        }
+        .grid2 {
+            width: calc(33.3% - 20px); /* Same width as .grid for consistency */
+            background-color: rgb(206, 206, 137); /* White background for a clean look */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centering content vertically */
+        }
+        .grid2:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,1.9);
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+            background-color: rgb(118, 151, 118); /* Subtle grey for links */
+            border-radius: 5px;
+            padding: 10px 15px; /* Padding for a larger click area */
+            margin: 5px 0; /* Spacing between links */
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        a:hover {
+            background-color: #05915e; /* Green color on hover */
+            color: #fff; /* White text on hover */
+            transform: translateY(-2px); /* subtle lift effect */
+        }
+        h1 {
+            color: #010101; /* Orchid */
+            text-shadow: 1px 1px #fff;
+          
+        }
+        .back{
+           margin-top: 20px;
+           margin-bottom: 20px;
+           width: 200px;
+  border-radius: 5px;
+            background-color: rgb(206, 206, 137); /* White background for a clean look */
+        }
+         /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .grid, .grid2 {
+                width: calc(50% - 20px); /* Half width minus the gap */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid, .grid2 {
+                width: 100%; /* Full width for smaller devices */
+            }
+            .container {
+                gap: 10px; /* Smaller gap for smaller devices */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px; /* Less padding on very small devices */
+            }
+            .grid h2, .grid2 h2 {
+                font-size: 1.5rem; /* Smaller headers on very small devices */
+            }
+            a {
+                padding: 8px 10px; /* Smaller padding for smaller devices */
+            }}
+
+    </style>
+</head>
+<body>
+  <h1> welcome to joelle's project</h1>  
+  <div class="container">
+
+  <div class="container">
+    <div class="grid">
+        <h2 >car</h2>
+        <a href="cars.php">insert</a>
+        <a href="carsearch.php">search</a>
+        <a href="carupdaaattte.php">update</a>
+
+    </div>
+    <div class="grid">  
+        <h2>manufacture</h2>
+        <a href="manufacture.php">insert</a>
+        <a href="manufacturesearch.php">search</a>
+        <a href="manufactureupdate.php">update</a>
+
+    </div>
+   
+    <div class="grid">
+        <h2>device</h2>
+        <a href="device.php">insert</a>
+        <a href="devicesearch.php">search</a>
+        <a href="deviceupdate.php">update</a>
+    </div>
+    <div class="grid">
+        <h2>customer</h2>
+        <a href="customer.php">insert</a>
+        <a href="customersearch.php">search</a>
+        <a href="customerupdate.php">update</a>
+
+    </div>
+    <div class="grid">
+        <h2>orders</h2>
+        <a href="orders.php">insert</a>
+        <a href="ordersearch.php">search</a>
+        <a href="ordersupdate.php">update</a>
+
+    </div>
+    <div class="grid">
+        <h2>addres</h2>
+        <a href="address.php">insert</a>
+        <a href="addresssearch.php">search</a>
+        <a href="addressupdate.php">update</a>
+
+    </div> 
+    <div class="grid2">
+        <h2>car_part</h2>
+        <a href="car-part.php">insert</a>
+        <a href="car_partsearch.php">search</a>
+
+    </div>
+    <div class="grid2">
+        <h2 class="hh">about the author</h2>
+        <a class="ab" href="abme.html">about the author</a></div>
+    <div class="grid2">
+        <h2 class="hh">about the data base</h2>
+        <a class="ab" href="abdb.html">about the database</a>
+    </div>
+
+  </div>
+
+</div>
+<div class="back"><a href="logout.php">logout</a></div>
+
+</body>
+</html>

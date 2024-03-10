@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Database</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even){background-color: #f2f2f2}
+        th {
+            background-color: #04AA6D;
+            color: white;
+            border-color: black;
+            border: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Table</h1>
+    <h3>Car Name:</h3>
+    <input type="text" id="name"/>
+    <br><button id="but">Search</button>
+    <br>
+    <!-- Div to display search results -->
+    <div id="result"></div>
+
+    <!-- Div to display the car table -->
+    <div id="carTable">
+        <!-- The car table will be loaded here by the PHP script -->
+    </div>
+
+    <script>
+    $(document).ready(function(){
+        $("#but").click(function(){
+            $.post("carsearch.php", {
+                name: $("#name").val()
+            },
+            function(data, status){
+                $("#result").html(data);
+            });
+        });
+
+        // Optionally, load the full car table on page load
+        // Uncomment below code if needed
+        
+        $.get("cardisplay.php", function(data) {
+            $("#carTable").html(data);
+        });
+        
+    });
+    </script>
+</body>
+</html>

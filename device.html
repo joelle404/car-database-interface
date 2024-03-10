@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even){background-color: #f2f2f2}
+        
+        th {
+          background-color: #04AA6D;
+          color: white;
+        }
+        </style>
+</head>
+<body>
+    <h1>device table</h1>
+<h3>manufacture name:</h3>
+<input type="text" id="no"/>
+<br><button id="but">search</button>
+<br>
+<div id="result"></div>
+<script>
+$(document).ready(function(){
+$("#but").click(function(){
+    $.post("devicesearch.php",
+    {
+        no :$("#no").val()
+    },
+    function(data,status){
+        $("#result").html(data);
+    }
+    );
+});
+});
+</script>
+</body>
+</html>
